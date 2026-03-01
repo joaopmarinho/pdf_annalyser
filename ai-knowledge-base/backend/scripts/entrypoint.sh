@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+set -e
+
+cd /app
+alembic -c app/db/migrations/alembic.ini upgrade head
+exec uvicorn app.main:app --host 0.0.0.0 --port 8000
